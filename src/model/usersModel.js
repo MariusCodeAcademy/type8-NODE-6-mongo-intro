@@ -40,6 +40,8 @@ async function findFemalesDb() {
   }
 }
 
+async function getArrDb(query) {}
+
 module.exports = {
   findMalesDb,
   findFemalesDb,

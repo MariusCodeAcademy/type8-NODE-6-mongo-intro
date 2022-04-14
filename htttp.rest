@@ -4,6 +4,8 @@ GET http://localhost:3000/api/users
 GET http://localhost:3000/api/users/students
 ####
 GET http://localhost:3000/api/users/males
+####
+GET http://localhost:3000/api/users/name/Appy
 
 
 ####

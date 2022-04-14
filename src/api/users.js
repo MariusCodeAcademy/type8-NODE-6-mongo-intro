@@ -1,7 +1,7 @@
 const express = require('express');
 const { dbClient } = require('../config');
 const { malesIndex } = require('../controller/usersController');
-const { findMalesDb } = require('../model/usersModel');
+const { findMalesDb, findFemalesDb } = require('../model/usersModel');
 
 const usersRoutes = express.Router();
 const dbName = 'node7';
@@ -100,6 +100,14 @@ usersRoutes.get('/users/females', async (req, res) => {
 });
 
 // GET /api/user/females - atrenkam tik moteris
+// findUserByName('James');
+// GET /api/user/name/James - atrenkam useri vardu James (james dynamic)
+usersRoutes.get('/users/name/:name', async (req, res) => {
+  // const name = req.params.name;
+  const { name } = req.params;
+  // findUserByName(name);
+  res.json(`you want to get user with name ${name}`);
+});
 
 // GET /api/user/age/gt/20 - atrenkam zmones vyresnius nei 20 (20 dinaminis segmentas kuriam galim paduoti koki norim skaiciu)
 
