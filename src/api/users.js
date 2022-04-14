@@ -1,5 +1,6 @@
 const express = require('express');
 const { dbClient } = require('../config');
+const { malesIndex } = require('../controller/usersController');
 const { findMalesDb } = require('../model/usersModel');
 
 const usersRoutes = express.Router();
@@ -75,6 +76,7 @@ async function sudentsController(req, res) {
 }
 
 // GET /api/user/males - atrenkam tik vyrus
+// usersRoutes.get('/users/males', malesIndex)
 usersRoutes.get('/users/males', async (req, res) => {
   console.log('usersRoutes.get /users/males ran');
   const malesArr = await findMalesDb();
@@ -83,8 +85,18 @@ usersRoutes.get('/users/males', async (req, res) => {
     res.status(500).json('something went wrong');
     return;
   }
-
   res.json(malesArr);
+});
+
+usersRoutes.get('/users/females', async (req, res) => {
+  console.log('usersRoutes.get /users/females ran');
+  const femalesArr = await findFemalesDb();
+
+  if (femalesArr === false) {
+    res.status(500).json('something went wrong');
+    return;
+  }
+  res.json(femalesArr);
 });
 
 // GET /api/user/females - atrenkam tik moteris
