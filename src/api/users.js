@@ -1,5 +1,6 @@
 const express = require('express');
 const { dbClient } = require('../config');
+const { findMalesDb } = require('../model/usersModel');
 
 const usersRoutes = express.Router();
 const dbName = 'node7';
@@ -74,6 +75,17 @@ async function sudentsController(req, res) {
 }
 
 // GET /api/user/males - atrenkam tik vyrus
+usersRoutes.get('/users/males', async (req, res) => {
+  console.log('usersRoutes.get /users/males ran');
+  const malesArr = await findMalesDb();
+
+  if (malesArr === false) {
+    res.status(500).json('something went wrong');
+    return;
+  }
+
+  res.json(malesArr);
+});
 
 // GET /api/user/females - atrenkam tik moteris
 
