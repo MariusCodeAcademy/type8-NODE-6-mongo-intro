@@ -12,7 +12,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 // Routes
-app.use('/', usersRoutes);
+app.use('/api/', usersRoutes);
 
 // 404
 app.use((req, res) => {

@@ -29,7 +29,9 @@ const users = [
     isStudent: true,
     gender: 'female',
   },
-][
-  ({ name: 'Marry', age: 28, isStudent: false, gender: 'female', town: 'London' },
-  { name: 'Jane', age: 22, isStudent: true, gender: 'female' })
 ];
+
+// [
+//   ({ name: 'Marry', age: 28, isStudent: false, gender: 'female', town: 'London' },
+//   { name: 'Jane', age: 22, isStudent: true, gender: 'female' })
+// ];
