@@ -29,19 +29,18 @@ usersRoutes.get('/users', async (req, res) => {
 
 usersRoutes.post('/users', async (req, res) => {
   try {
+    const { name, town, age } = req.body;
+    // if (name.length < 1) console.log('too short');
     // prisinjungsim prie mongoDb
     await dbClient.connect();
     console.log('open conn');
     // atliksim veiksma (gautis duom, irasyti duom, antnaujinti )
-    const newUser = {
-      name: 'James',
-      hasCar: true,
-      town: 'Kaunas',
-    };
-    const insertResult = await dbClient
-      .db('cao_intro')
-      .collection('users')
-      .insertOne(newUser);
+
+    const insertResult = await dbClient.db('cao_intro').collection('users').insertOne({
+      name: name,
+      city: town,
+      age,
+    });
     console.log('insertResult ===', insertResult);
     res.json(insertResult);
   } catch (error) {

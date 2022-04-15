@@ -13,5 +13,7 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-  "name": "Bob"
+  "name": "Bob",
+  "town": "Kaunas",
+  "age": 52
 }
